@@ -77,6 +77,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # Aliases
 alias ls='ls --color'
 alias c='clear'
+alias author='echo "Danil Ilin (glenpoin)"'
 alias cd='z'
 alias cat='bat'
 
