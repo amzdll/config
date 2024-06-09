@@ -8,8 +8,11 @@ fi
 
 cp ./ohmyposh/* "$OHMYPOSH_DIR"
 
-
 if [ -f "$HOME/.zshrc" ]; then
+  "Your .zshrc has been renamed .zshrc.bak."
   mv $HOME/.zshrc $HOME/.zshrc.bak3
-  cp ./.zshrc $HOME/
 fi
+
+cp ./.zshrc $HOME/
+
+zsh
