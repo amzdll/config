@@ -1,11 +1,24 @@
-export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+
+source "${HOME}/.brewconfig.zsh"
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
 if [ ! -d "$ZINIT_HOME" ]; then
    mkdir -p "$(dirname $ZINIT_HOME)"
    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+
+if ! brew list --formula | grep -q "oh-my-posh"; then
+    brew install oh-my-posh
+fi
+
+if ! brew list --formula | grep -q "fzf"; then
+    brew install fzf
+fi
+
+if ! command -v zoxide &> /dev/null; then
+    curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 fi
 
 source "${ZINIT_HOME}/zinit.zsh"
