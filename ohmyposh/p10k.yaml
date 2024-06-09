@@ -1,0 +1,36 @@
+$schema: "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
+blocks:
+    - segments:
+          - foreground: "#04A6EF"
+            properties:
+                time_format: "15:04:05"
+            style: plain
+            template: " {{ .CurrentDate | date .Format }} "
+            type: time
+      type: rprompt
+    - alignment: left
+
+      segments:
+          - foreground: "#04A6EF"
+            properties:
+                style: full
+            style: plain
+            template: "{{ .Path }} "
+            type: path
+
+          - foreground: "#99E02E"
+            properties:
+                branch_icon: ''
+                commit_icon: '@'
+                foreground: '#99E02E'
+                fetch_status: true
+            style: plain
+            template: "{{ .HEAD }}<#99E02E>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡ {{ .Working.String }}{{ end }} </>"
+            type: git
+
+          - foreground: "#99E02E"
+            style: plain
+            template: "\u276f "
+            type: text
+      type: prompt
+version: 2
